@@ -30,14 +30,14 @@ if __name__ == "__main__":
     print(f"Got a first tuple: {point1}")
     print(f"It includes: X={x1}, Y={y1}, Z={z1}")
 
-    distance_to_center = math.sqrt(x1 ** 2 + y1 ** 2 + z1 ** 2)
-    print(f"Distance to center: {distance_to_center:.4f}")
+    distance_to_center = round(math.sqrt(x1 ** 2 + y1 ** 2 + z1 ** 2), 4)
+
+    print(f"Distance to center: {distance_to_center}")
 
     print("\nGet a second set of coordinates")
     point2 = get_player_pos()
 
     x2, y2, z2 = point2
-    distance_between = math.sqrt(
-        (x2 - x1) ** 2 + (y2 - y1) ** 2 + (z2 - z1) ** 2
-    )
-    print(f"Distance between the 2 sets of coordinates: {distance_between:.4f}")
+    distance_between = round(math.sqrt(
+        (x2 - x1) ** 2 + (y2 - y1) ** 2 + (z2 - z1) ** 2), 4)
+    print(f"Distance between the 2 sets of coordinates: {distance_between}")
