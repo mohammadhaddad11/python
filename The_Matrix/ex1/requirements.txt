@@ -1,4 +1,4 @@
-pandas
-numpy
-matplotlib
-requests
+pandas==3.0.3
+numpy==2.5.1
+matplotlib==3.11.0
+requests==2.34.2

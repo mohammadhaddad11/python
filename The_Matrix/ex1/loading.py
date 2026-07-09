@@ -21,6 +21,15 @@ def instructions(missing: list[str]) -> None:
     print("poetry install")
 
 
+def pip_poetry_diff() -> None:
+    print(" -Pip: is a package installer")
+    print(" +Poetry: is a dependency & system manager")
+    print(" -pip: virtual env require manual setup ")
+    print(" +poetry: virtual env manage automatically")
+    print(" -pip: Best For: Small and simple projects")
+    print(" +poetry: Best For: Long-term development projects")
+
+
 def get_version(package: str) -> str:
     module = import_module(package)
     return getattr(module, "__version__", "unknown")
@@ -96,6 +105,8 @@ if __name__ == "__main__":
     import matplotlib.pyplot as plt
     import requests
 
+    pip_poetry_diff()
+
     url = (
         "https://api.open-meteo.com/v1/forecast?"
         "latitude=32.5556&longitude=35.85&"
@@ -145,7 +156,7 @@ if __name__ == "__main__":
     print(f"Average wind speed: {avg_wind:.2f} km/h")
     print(f"Average humidity: {avg_humidity:.2f}%")
 
-    chart_data = hourly.head(24).copy()
+    chart_data = hourly.head(24)
     day_label = chart_data["time"].dt.strftime("%Y-%m-%d").iloc[0]
     time_labels = chart_data["time"].dt.strftime("%H:%M")
 
@@ -157,7 +168,7 @@ if __name__ == "__main__":
     plt.title(f"Irbid Hourly Temperature Forecast ({day_label})")
     plt.xlabel("Time")
     plt.ylabel("Temperature (C)")
-    plt.xticks(time_labels[::2], rotation=45)
+    plt.xticks(time_labels[::2])
     plt.tight_layout()
     plt.savefig("matrix_analysis.png")
     plt.close()
